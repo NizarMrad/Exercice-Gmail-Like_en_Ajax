@@ -1,0 +1,29 @@
+<h1 class="text-center mb-4">Welcome to my todolist app</h1>
+<%= render 'layouts/task_form'  %>
+<div class="container">
+<div class="card">
+  
+  <% @categories.each do  |category|%>
+  <div class="card-header" >
+  <%= category.title  %>
+  </div>
+    <ul class="list-group list-group-flush" id ="list-test">
+      <% category.tasks.each do |task|  %>
+     <%= render partial:"tasks/task" , locals: {task: task} %>
+      <% end %>
+    </ul>
+  <% end %>
+  </br>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @tasks.each do |task|  %>
+      <div class="card col-3">
+        <% unless task.image.nil? %>
+          <%= image_tag task.image, class: "rounded-circle" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
