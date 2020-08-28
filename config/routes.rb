@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: "home#index"
-  resources :tasks, except: [:show]
+  
+  #Création des routes
+  root 'emails#index'
+  resources :emails
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
